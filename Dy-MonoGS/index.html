@@ -140,10 +140,10 @@
 <style>
     .video-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Four columns */
-        grid-template-rows: repeat(2, 1fr); /* Two rows */
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-rows: repeat(1, 1fr); /* One rows */
         gap: 8px 4px; /* Gap between videos */
-        width: 80%; /* Set the container width to 80% */
+        width: 100%; /* Set the container width to 80% */
         margin: 0 auto; /* Center the container horizontally */
     }
 
@@ -164,51 +164,15 @@
   <div class="video-grid">
       <div>
           <video muted playsinline loop preload="auto">
-              <source src="static/videos/car_turn/sequence.mp4" type="video/mp4">
+              <source src="static/videos/recontruction-train.mp4" type="video/mp4">
           </video>
           <p style="text-align: center;"> A) Reconstructed frames </p>
         </div>
         <div>
           <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_traj_vis.mp4" type="video/mp4">
+            <source src="static/videos/eval-train.mp4" type="video/mp4">
           </video>
-          <p style="text-align: center;"> B) 2D tracking </p>
-        </div>
-        <div>
-          <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_traj_upon.mp4" type="video/mp4">
-          </video>
-          <p style="text-align: center;"> C) 3D tracking </p>
-        </div>
-        <div>
-          <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_move_seg.mp4" type="video/mp4">
-          </video>
-          <p style="text-align: center;"> D) Zero-shot segmentation of moving object </p>
-        </div>
-        <div>
-          <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_center.mp4" type="video/mp4">
-          </video>
-          <p style="text-align: center;"> E) Center of all Gaussians </p>
-        </div>
-        <div>
-          <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_move_center.mp4" type="video/mp4">
-          </video>
-          <p style="text-align: center;"> F) Center of moving Gaussians </p>
-        </div>
-        <div>
-          <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_still_center.mp4" type="video/mp4">
-          </video>
-          <p style="text-align: center;"> G) Center of still Gaussians </p>
-        </div>
-        <div>
-          <video muted playsinline loop preload="auto">
-            <source src="static/videos/car_turn/sequence_depth.mp4" type="video/mp4">
-          </video>
-          <p style="text-align: center;"> H) Consistent depth </p>
+          <p style="text-align: center;"> H) Novel view synthesis </p>
       </div>
   </div>
   
@@ -234,14 +198,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Reconstructing 4D scenes from video inputs is a crucial yet challenging task. 
-            Conventional methods usually rely on the assumptions of multi-view video inputs, known camera parameters, or static scenes, all of which are typically absent under in-the-wild scenarios.
-            In this paper, we relax all these constraints and tackle a highly ambitious but practical task, which we termed as <b>AnyV4D: we assume only one monocular video is available without any camera parameters as input, and we aim to recover the dynamic 4D world alongside the camera poses.</b>
-            To this end, we  introduce <b>GFlow</b>, a new framework that utilizes only 2D priors (depth and optical flow) to <b>lift a video (3D) to a 4D explicit representation, entailing a flow of Gaussian splatting through space and time. </b>
-            GFlow first clusters the scene into still and moving parts, then applies a sequential optimization process that optimizes camera poses and the dynamics of 3D Gaussian points based on 2D priors and scene clustering, ensuring fidelity among neighboring points and smooth movement across frames.
-            Since dynamic scenes always introduce new content, we also propose a new pixel-wise densification strategy for Gaussian points to integrate new visual content. 
-            Moreover, GFlow transcends the boundaries of mere 4D reconstruction; it also enables tracking of any points across frames without the need for prior training and segments moving objects from the scene in an unsupervised way.
-            Additionally, the camera poses of each frame can be derived from GFlow, allowing for rendering novel views of a video scene through changing camera pose. By employing the explicit representation, we may readily conduct scene-level or object-level editing as desired, underscoring its versatility and power.
+            Dynamic scene reconstruction aims to recover the time-varying geometry and appearance of a dynamic scene. Existing methods, however, heavily rely on the existence of multiple-view captures or the accurate camera poses estimated by Structure from Motion (SfM) algorithms. To relax this constraint, we introduce a method capable of reconstructing generic dynamic scenes, from casually captured monocular videos without known camera poses. Unlike recent works that treat static and dynamic content separately, we propose a unified Hexplane-based Gaussian field to capture the complex effects of scene deformation and camera motion. The Hexplane decomposition enables feasible disentanglement for effective optimization. Combined with an efficient camera pose initialization strategy, our approach significantly improves view synthesis quality and camera pose estimation accuracy over previous methods, while enhancing computational efficiency. 
 
           </p>
         </div>
