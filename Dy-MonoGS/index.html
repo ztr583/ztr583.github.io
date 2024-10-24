@@ -124,13 +124,6 @@
 </style>
 
 <section>
-  <div class="columns is-centered has-text-centered">
-    <p style="margin-top: 10px; margin-bottom: 10px; text-align: center; font-size:22px;">
-     <!-- OmniMotion jointly tracks all points in a video across all frames, <i>even through occlusions</i>.</p> -->
-     <em><b>Dy-MonoGS</b> represents the video as a 4D explicit representation, entailing a <span style="color: rgb(43, 200, 70);">flow</span> of <span style="color: rgb(0, 136, 255);">Gaussian splatting</span> through space and time.</em>
-     <br>
-    </p>
-  </div>
   <div class="video-grid">
       <div>
           <video muted playsinline loop preload="auto">
@@ -168,8 +161,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning Dynamic 3D Gaussians from Monocular Videos without Camera Poses
-
+            Dynamic scene reconstruction aims to recover the time-varying geometry and appearance of a dynamic scene. Existing methods, however, heavily rely on the existence of multiple-view captures or the accurate camera poses estimated by Structure from Motion (SfM) algorithms. To relax this constraint, we introduce a method capable of reconstructing generic dynamic scenes, from casually captured monocular videos without known camera poses. Unlike recent works that treat static and dynamic content separately, we propose a unified Hexplane-based Gaussian field to capture the complex effects of scene deformation and camera motion. The Hexplane decomposition enables feasible disentanglement for effective optimization. Combined with an efficient camera pose initialization strategy, our approach significantly improves view synthesis quality and camera pose estimation accuracy over previous methods, while enhancing computational efficiency. 
           </p>
         </div>
       </div>
